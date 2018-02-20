@@ -46,7 +46,8 @@ abstract class BrokerTester extends TestCase
         $vcal = Reader::read($input);
 
         foreach ($vcal->getComponents() as $mainComponent) {
-            break;
+            if ($mainComponent->name == 'VEVENT')
+                break;
         }
 
         $message = new Message();
